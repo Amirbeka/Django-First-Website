@@ -1,0 +1,15 @@
+{% extends 'layouts/base.html' %}
+{% load crispy_forms_filters  %}
+{% block content %}
+<form action="{% url 'add' %}" method="post">
+    {% csrf_token %}
+    <h2>Malumotlaringizni kiriting</h2>
+    {{ form|crispy }}
+    <div class="d-grid gap-2">
+        <button class="btn btn-success btn-outline-danger mt-3 text-light"  type="submit"><h4>Yuborish 📤</h4></button>
+      </div>
+</form>
+
+{% endblock %}
+
+

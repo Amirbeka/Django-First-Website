@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'DarkSky_Animated.png' %}">
+    <link rel="stylesheet" href="/static/CSS/meny.css">
+    <link rel="stylesheet" href="{% static 'vendor/bootstrap/css/bootstrap.css' %}">
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.js'%}"></script>
+    <title>  {{ page_title }} </title>
+    
+    
+</head> 
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">PROJECT 1</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item me-5">
+                <a class="nav-link {% if request.resolver_match.url_name == 'index' %} active {% endif %}" aria-current="page" href="{% url 'index' %}">Bosh sahifa</a>
+              </li>
+              <li class="nav-item me-5">
+                <a class="nav-link {% if request.resolver_match.url_name == 'about' %} active {% endif %}" href="{% url 'about' %}">Men haqimda</a>
+              </li>
+                <li class="nav-item me-5">
+                    <a class="nav-link {% if request.resolver_match.url_name == 'add' %} active {% endif %}" href="{% url 'add' %}"> Ism qo'shish</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav me-1">
+                <li>
+                    <a class="nav-link {% if request.resolver_match.url_name == 'registrasion' %} active {% endif %}" href="{% url 'registrasion' %}" > Ro'yxatdan o'tish</a>
+                </li>
+            </ul>
+            <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+
+<div class="container">
+    {% for m in messages %}
+       <div class="alert {{ m.tags }} alert-dismissible fade show mt-3" role="alert">
+           {{ m }}
+       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+       </div>
+    {% endfor %}
+{% block content %}
+
+{% endblock %}
+</div>
+
+</body>
+</html>  
+
+
+
+

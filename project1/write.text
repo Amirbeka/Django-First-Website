@@ -1,0 +1,174 @@
+{% extends 'layouts/base.html' %} 
+head qismini ozgartiradi
+
+{% extends layouts/} 
+
+-------------------------------------------------------------------------------------------
+
+
+{% block content %} 
+body qismini ozgartirishga yordam beradi 1000 fayl bolsaham
+
+{% endblock %}
+
+
+
+
+
+
+background  ==>      bolimlaradan iborat
+border  ==>     ramka beradi:: ishlatilishi 1.px 2.Toifa yani tur 3.rang
+box-shadow  ==>      ramka yoki matnga soya yani shadovs beradi:: ishlatilishi 1.rang 2. joylashuv 0 0 3.px
+cursor  ==>      mishkachani ozgartiradi:: 1.toifa tanlash yani turi help, default, va boshqa tur
+color  ==>      faqat matnni rangini ozgartiradi:; 1.rang tanlash
+font  ==>       turlarga bolinadi
+font-weight  ==>    fontni yani textni qalin yoki mayin shaklda qiladi:: ishlatilishi 1.sonda, oxiri 900 qalin bu vazifani bold ham bajaradi
+font-style  ==>     fontga tur beradi masalan italic matn yozqizib korsatadi 
+font-size  ==>      fontni katta yoki kichik qiladi:; ishlatilishi 1.px
+height  ==>      balandlik beradi: ishlatilishi 1.px 2.%% 3.rm 4.vh
+letter-space  ==>    har bitta harfni orasida joy ochadi:; ishlatilishi 1.koproq px
+line-height  ==>    2 sozni bir birini ustiga chiqishiga olib keladi:: ishlatilishi 1.px
+margin  ==>      ramkada olingan matnni katta ramkaga oladi:; 2. oziga nisbatan tashqariga joy beradi
+max-height  ==>
+max-width  ==>
+min-height  ==> 
+min-width  ==> 
+opacity  ==>    matnni shaffofligini belgilaydi:: ishlatilishi 1. 0.1 dan oxiri birgacha 1 qilsak oz holiga qaytadi
+outline  ==>        ramka yani borderning ustidan yani bitta ramka qiladi:: ishlatilishi 1. px tur rang 
+overflow ==>     textdagi ortiqcha yani ramkadan chiqqan joyini  hiden qilib yashirib qoyadi, scroll     
+padding  ==>    p tegida berilsa::ramkadagi sozga nisbatan joy ochadi 2. div.tegida berilsa marginni vazifasini bildiradi
+padding-left ==>     ramkani razmerine beradi ^
+padding-right ==>   ramkani razmerine beradi >
+text-align  ==>      text qayerdan boshlanishi beradi:: ishlatilishi 1.center da 2.end - oxirida 3.start - boshida va boshqlar
+text-decoration  ==>    decoratsiya beradi a tegida pastida pastki chiziq boladi text dcda uni chiziqsiz yoki cursorni ustiga etkanda chiziqni korsatadigan qilsa boladi 
+text-shadow  ==>    textga soya beradi:: 1. text-shadow: -4px 10px 2px rgba(255,0,0,1); shunday ishlaydi
+white-space  ==>    overflowga oxshaydi:: textni taxlaydi turi::normal, nowrap, pre-line, inherit
+word- ==>   overflow hiden va boshqa vazifalariga oxshaydi
+vertical-align   ==> 
+position  ==> pazitsiyani belgilaydi::textga posetion: fixsed; berilsa scrolni pastga tushirsak scrolga ahamiyat bermay tushadi tushirsak matn b
+
+
+
+
+
+
+
+
+----------------------------------------------------------------
+        menu chiqarish "html" css bilan boglangan
+
+
+<div class="menu">  
+    <div class="b"> menu 1</div>
+    <div>
+        <a href="#">sub menu 1</a>
+        <a href="#">sub menu 1</a>
+        <a href="#">sub menu 1</a>
+    </div>
+</div>
+<div class="menu">  
+    <div class="b"> menu 2</div>
+    <div>
+        <a href="#">sub menu 2</a>
+        <a href="#">sub menu 2</a>
+        <a href="#">sub menu 2</a>
+    </div>
+</div>
+<div class="menu">  
+    <div class="b"> menu 3</div>
+    <div>
+        <a href="#">sub menu 3</a>
+        <a href="#">sub menu 3</a>
+        <a href="#">sub menu 3</a>
+    </div>
+</div>
+
+
+
+-------------------------------------------------------
+                menu chiqarish code "css"
+
+
+
+.menu {
+	width: 200px;
+	position: relative;
+	cursor: pointer;
+	background-color: aqua;
+	
+}
+
+.menu .b {
+	line-height: 50px;
+	transition: all 0.2s linear;
+}
+
+.menu a:hover, .menu > div:not(.b) {
+	background-color: blueviolet;
+	color: rgb(202, 143, 53);
+}
+.menu:hover .b {
+	background-color: rgb(157, 230, 22);
+	color: black;
+
+}
+
+.menu a {
+	display: block;
+	padding: 10px;
+	line-height: 30px;
+	text-decoration: none;
+	white-space: nowrap;
+}
+
+.menu > div:not(.b) {
+	display: block;
+	position: absolute;
+	background-color: red;
+	left: 200%;
+	top: 0;
+	opacity: 0;
+	transition: opacity 0.1s linear, left 0.1s linear;
+}
+
+.menu:hover > div:not(.b) {
+	display: block;
+	left: 100%;
+	opacity: 1;
+}
+
+-------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* snap install spotify */
+
+
+
+<form action="{% url 'add' %}" method="post">
+    {% csrf_token %}
+    <h2>Malumotlaringizni kiriting</h2>
+    <label for="f-name" class="form-label">Ismingiz</label>
+    <input id="f-name" class="form-control" type="text" name="f_name" placeholder="First name">
+    <label for="l-name" class="form-label">Familiyangiz</label>
+    <input id="l-name" class="form-control" type="text" name="l_name" placeholder="Last name">
+    <label for="ty" class="form-label">Tug'ilgan yilingiz</label>
+    <input id="ty" class="form-control" type="number" name="by" placeholder="Your birthday">
+
+    <div class="d-grid gap-2">
+        <button class="btn btn-warning btn-outline-danger mt-3 text-light"  type="submit"><h4>Yuborish 📤</h4></button>
+      </div>
+</form>
+
+
+
